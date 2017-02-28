@@ -19,28 +19,29 @@
 -->
 <manifest
     xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.android.launcher3">
+    package="com.mts2792.launcher">
     
     <permission
-        android:name="com.android.launcher3.permission.READ_SETTINGS"
+        android:name="com.mts2792.launcher.permission.READ_SETTINGS"
         android:permissionGroup="android.permission-group.SYSTEM_TOOLS"
         android:protectionLevel="normal"
         android:label="@string/permlab_read_settings"
         android:description="@string/permdesc_read_settings"/>
     <permission
-        android:name="com.android.launcher3.permission.WRITE_SETTINGS"
+        android:name="com.mts2792.launcher.permission.WRITE_SETTINGS"
         android:permissionGroup="android.permission-group.SYSTEM_TOOLS"
         android:protectionLevel="signatureOrSystem"
         android:label="@string/permlab_write_settings"
         android:description="@string/permdesc_write_settings"/>
 
-    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
-    <uses-permission android:name="com.android.launcher.permission.WRITE_SETTINGS" />
-    <uses-permission android:name="com.android.launcher3.permission.READ_SETTINGS" />
-    <uses-permission android:name="com.android.launcher3.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="com.mts2792.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="com.mts2792.launcher.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="com.mts2792.launcher.permission.READ_SETTINGS" />
+    <uses-permission android:name="com.mts2792.launcher.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.SET_WALLPAPER_HINTS" />
 
     <application
-        android:backupAgent="com.android.launcher3.LauncherBackupAgent"
+        android:backupAgent=".LauncherBackupAgent"
         android:fullBackupOnly="true"
         android:fullBackupContent="@xml/backupscheme"
         android:hardwareAccelerated="true"
@@ -55,7 +56,7 @@
         attributes and intent filters the same
         -->
         <activity
-            android:name="com.android.launcher3.Launcher"
+            android:name=".Launcher"
             android:launchMode="singleTask"
             android:clearTaskOnLaunch="true"
             android:stateNotNeeded="true"
@@ -79,7 +80,7 @@
         The settings activity. When extending keep the intent filter present
         -->
         <activity
-            android:name="com.android.launcher3.SettingsActivity"
+            android:name=".SettingsActivity"
             android:label="@string/settings_button_text"
             android:autoRemoveFromRecents="true">
             <intent-filter>
@@ -94,7 +95,7 @@
         represent the package name.
         -->
         <provider
-            android:name="com.android.launcher3.LauncherProvider"
+            android:name=".LauncherProvider"
             android:authorities="com.android.launcher3.settings"
             android:exported="true"
             android:writePermission="com.android.launcher3.permission.WRITE_SETTINGS"
@@ -103,7 +104,7 @@
         <!-- ENABLE_FOR_TESTING
 
         <activity
-            android:name="com.android.launcher3.testing.LauncherExtension"
+            android:name="LauncherExtension"
             android:launchMode="singleTask"
             android:clearTaskOnLaunch="true"
             android:stateNotNeeded="true"
@@ -120,7 +121,7 @@
         </activity>
 
         <activity
-            android:name="com.android.launcher3.testing.MemoryDumpActivity"
+            android:name="MemoryDumpActivity"
             android:theme="@android:style/Theme.NoDisplay"
             android:label="* HPROF"
             android:excludeFromRecents="true"
@@ -134,7 +135,7 @@
         </activity>
 
         <activity
-            android:name="com.android.launcher3.testing.ToggleWeightWatcher"
+            android:name="ToggleWeightWatcher"
             android:label="Show Mem"
             android:icon="@mipmap/ic_launcher_home">
             <intent-filter>
@@ -144,7 +145,7 @@
             </intent-filter>
         </activity>
 
-        <service android:name="com.android.launcher3.testing.MemoryTracker" />
+        <service android:name="MemoryTracker" />
 
         -->
 
